@@ -21,7 +21,7 @@ class BridgesTest extends WordSpec with Matchers {
     ))
 
     "detect bridges " in {
-      val bridges = abstractAlgorithm.find(graph)
+      val bridges = abstractAlgorithm.bridges(graph)
       bridges.size should be (3)
       bridges(forth) should be (List(third, fifth))
       bridges(fifth) should be (List(forth))
