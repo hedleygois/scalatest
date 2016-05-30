@@ -4,7 +4,7 @@ import structure.{Node, Graph}
 
 trait Bridges extends DFS with Connectedness {
 
-  def find(graph: Graph): Map[Node, List[Node]] = {
+  def bridges(graph: Graph): Map[Node, List[Node]] = {
     val bridges = scala.collection.mutable.Map[Node, List[Node]]()
     graph.structure.keys.foreach(key => {
       graph.structure(key).foreach(child => {
