@@ -4,6 +4,7 @@ import structure.{Node, Graph}
 
 trait Bridges extends DFS with Connectedness {
 
+  //TODO We can refactor this to a more functional style but we have to consider we already have a time complexity being O(n2)
   def bridges(graph: Graph): Map[Node, List[Node]] = {
     val bridges = scala.collection.mutable.Map[Node, List[Node]]()
     graph.structure.keys.foreach(key => {
