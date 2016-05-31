@@ -20,12 +20,16 @@ class BridgesTest extends WordSpec with Matchers {
       fifth -> (forth :: Nil)
     ))
 
-    "detect bridges " in {
+    "detect bridges when it has any bridge " in {
       val bridges = abstractAlgorithm.bridges(graph)
       bridges.size should be (3)
       bridges(forth) should be (List(third, fifth))
       bridges(fifth) should be (List(forth))
       bridges(third) should be (List(forth))
+    }
+
+    "NOT detect bridges when it has no bridges " in {
+      abstractAlgorithm.bridges(DataProvider.smallGraphWithoutBridges) shouldBe empty
     }
   }
 
